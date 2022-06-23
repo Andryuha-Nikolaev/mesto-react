@@ -14,6 +14,9 @@ function Main({ onEditProfile, onAddPlace, onEditAvatar, onCardClick }) {
       setUserDescription(profileInfo.about)
       setUserAvatar(profileInfo.avatar)
     })
+      .catch((err) => {
+        console.log(err);
+      })
     api.getCards().then((cardsData) => {
       setCards(cardsData.map((data) => ({
         cardId: data._id,// айди карточки
@@ -22,6 +25,9 @@ function Main({ onEditProfile, onAddPlace, onEditAvatar, onCardClick }) {
         likes: data.likes
       })))
     })
+      .catch((err) => {
+        console.log(err);
+      })
   }, []);
 
   return (
@@ -48,7 +54,7 @@ function Main({ onEditProfile, onAddPlace, onEditAvatar, onCardClick }) {
               name={card.name}
               link={card.link}
               likes={card.likes}
-              onCardClick={onCardClick}/>
+              onCardClick={onCardClick} />
           ))}
         </ul>
       </section>
