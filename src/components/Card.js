@@ -1,17 +1,42 @@
 import React from 'react';
+import CurrentUserContext from '../contexts/CurrentUserContext';
 
-function Card(card) {
+function Card( { card, onCardClick, onCardLike, onCardDelete }) {
+
+  const currentUser = React.useContext(CurrentUserContext);//подписываемся на контекст
+
+  // Определяем, являемся ли мы владельцем текущей карточки
+  const isOwn = card.owner._id === currentUser._id;
+
+  // Создаём переменную, которую после зададим в `className` для кнопки удаления
+  const cardDeleteButtonClassName = (
+    `elements__delete-button ${isOwn ? 'elements__delete-button_visible' : 'elements__delete-button_hidden'}`
+  );
+
+  // Определяем, есть ли у карточки лайк, поставленный текущим пользователем
+const isLiked = card.likes.some(i => i._id === currentUser._id);
+
+// Создаём переменную, которую после зададим в `className` для кнопки лайка
+const cardLikeButtonClassName = `elements__like-button ${isLiked ? 'elements__like-button_active' : ''}`;
+
   function handleCardClick() {
-    card.onCardClick(card);
+    onCardClick(card);
   }
+  function handleLikeClick() {
+    onCardLike(card);
+  }
+  function handleDeleteClick() {
+    onCardDelete(card);
+  }
+
   return (
     <li className="elements__list-item">
       <img className="elements__image" alt={card.name} src={card.link} onClick={handleCardClick} />
-      <button type="button" className="elements__delete-button" aria-label="удалить карточку"></button>
+      <button type="button" className={cardDeleteButtonClassName} aria-label="удалить карточку" onClick={handleDeleteClick} ></button>
       <div className="elements__container">
         <h2 className="elements__text">{card.name}</h2>
         <div className="elements__like-container">
-          <button type="button" className="elements__like-button" aria-label="поставить лайк"></button>
+          <button type="button" className={cardLikeButtonClassName} aria-label="поставить лайк" onClick={handleLikeClick}></button>
           <span className="elements__like-counter">{card.likes.length}</span>
         </div>
       </div>
