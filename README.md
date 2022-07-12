@@ -1,27 +1,22 @@
-# Проект: Место-React (Яндекс.Практикум)
+# Проектная работа: Место-React (Яндекс.Практикум).
 
-### Описание
+### О проекте:
+Проектная работа по созданию интерактивной страницы. Реализована возможность редактировать профиль и аватар, добавлять и удалять фотографии, ставить и убирать лайки.  Все изменения сохраняются на сервере Яндекс.Практикум. Проект был портирован на React в рамках 10-11 проектных работ.
 
-Проектная работа по созданию интерактивной страницы. В рамках десятой проектной работы проект был портирован на React.
-
-**Ссылка на сайт**
-
-* [Место](https://andryuha-nikolaev.github.io/mesto-react/)
-
-**Технологии**
-
+## Технологический стек:
 * Flexbox
 * Grid Layout
-* Nested БЭМ
-* JavaScript
+* Адаптивная верстка с использованием медиа-запросов
+* Позиционирование блоков и элементов
+* Минификация CSS и автоматическое добавление вендорных префиксов
+* BEM Nested
+* Псевдоклассы CSS
+* JavaScript (Асинхронный JS, ООП, Fetch API)
+* React JS
+* Сборка Webpack
 * Git
-* ООП
-* Webpack
-* API
-* React
 
-**Макет**
-
+## Ссылки на макеты Figma:
 * [проектная 4](https://www.figma.com/file/2cn9N9jSkmxD84oJik7xL7/JavaScript.-Sprint-4?node-id=0%3A1)
 
 * [проектная 5](https://www.figma.com/file/bjyvbKKJN2naO0ucURl2Z0/JavaScript.-Sprint-5?node-id=50160%3A2)
@@ -30,18 +25,17 @@
 
 * [проектная 9](https://www.figma.com/file/PSdQFRHoxXJFs2FH8IXViF/JavaScript.-Sprint-9?node-id=0%3A1)
 
-**Чеклист**
+## Ссылка на проект
+* [Проект на Github Pages](https://andryuha-nikolaev.github.io/mesto-react/)
 
-* [проектная 4](https://code.s3.yandex.net/web-developer/checklists-pdf/new-program/checklist-4.pdf)
-
-* [проектная 5](https://code.s3.yandex.net/web-developer/checklists-pdf/new-program/checklist-5.pdf)
-
-* [проектная 6](https://code.s3.yandex.net/web-developer/checklists-pdf/new-program/checklist-6.pdf)
-
-* [проектная 7](https://code.s3.yandex.net/web-developer/checklists-pdf/new-program/checklist-7.pdf)
-
-* [проектная 8](https://code.s3.yandex.net/web-developer/checklists-pdf/new-program/checklist-8.pdf)
-
-* [проектная 9](https://code.s3.yandex.net/web-developer/checklists-pdf/new-program/checklist-9.pdf)
-
-* [проектная 10](https://code.s3.yandex.net/web-developer/checklists-pdf/new-program/checklist-10.pdf)
+## Инструкция для работы с проектом:
+```
+git clone git@github.com:Andryuha-Nikolaev/mesto-react.git
+cd mesto-react
+npm install
+npm start
+```
+## Задеплоить проект в Github Pages:
+```
+npm run deploy
+```
