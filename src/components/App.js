@@ -11,15 +11,14 @@ import EditAvatarPopup from './EditAvatarPopup';
 import AddPlacePopup from './AddPlacePopup';
 
 function App() {
-  const [isEditProfilePopupOpen, setIsEditProfilePopupOpen] = useState(false);//задаем изначальное состояние false
+  const [isEditProfilePopupOpen, setIsEditProfilePopupOpen] = useState(false);
   const [isAddPlacePopupOpen, setIsAddPlacePopupOpen] = useState(false);
   const [isEditAvatarPopupOpen, setIsEditAvatarPopupOpen] = useState(false);
   const [selectedCard, setSelectedCard] = useState({});
-  const [currentUser, setCurrentUser] = useState('');//переменная состояния данных профиля
+  const [currentUser, setCurrentUser] = useState('');
   const [cards, setCards] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
 
-  //при монтировании вызываем api.getUserInfo и обновляем стейт-переменную из полученного значения
   useEffect(() => {
     api.getUserInfo().then((profileInfo) => {
       setCurrentUser(profileInfo)
@@ -30,7 +29,7 @@ function App() {
 
     api.getCards().then((cardsData) => {
       setCards(cardsData.map((card) => ({
-        _id: card._id,// айди карточки
+        _id: card._id,
         name: card.name,
         link: card.link,
         likes: card.likes,
@@ -42,7 +41,6 @@ function App() {
       })
   }, []);
 
-  //с вызовом этой функции состояние всех попапов переводится в закрытое
   function closeAllPopups() {
     setIsEditProfilePopupOpen(false)
     setIsAddPlacePopupOpen(false)
