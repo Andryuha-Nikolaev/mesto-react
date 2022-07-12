@@ -4,10 +4,9 @@ import CurrentUserContext from '../contexts/CurrentUserContext';
 
 function Main({ onEditProfile, onAddPlace, onEditAvatar, onCardClick, onCardLike, onCardDelete, cards }) {
 
-  const currentUser = React.useContext(CurrentUserContext);//подписываемся на контекст
+  const currentUser = React.useContext(CurrentUserContext);
 
   return (
-    //при клике на кнопку открытия попапа изначальное состояние меняется на true
     <main className="content">
       <section className="profile">
         <div className="profile__avatar-container">

@@ -2,7 +2,6 @@ import React from 'react';
 
 function PopupWithForm({ name, title, children, buttonText, isOpen, onClose, onSubmit }) {
   return (
-    //если из опен true (при нажатой кнопке открытия попапа, то добавится класс открытия попапа, иначе попап останется в изначальном состоянии)
     <div className={`popup popup_type_${name} ${isOpen ? "popup_opened" : ""}`} id="popup-edit">
       <div className="popup__container">
         <button id="edit-close-button" type="button" className="popup__close-button" onClick={onClose}/>

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import PopupWithForm from './PopupWithForm';
 
 function EditAvatarPopup({ isOpen, onClose, onUpdateAvatar, onLoading }) {
@@ -10,11 +10,14 @@ function EditAvatarPopup({ isOpen, onClose, onUpdateAvatar, onLoading }) {
 
   function handleSubmit(e) {
     e.preventDefault();
-
     onUpdateAvatar({
-      avatar: avatarRef.current.value //Значение инпута, полученное с помощью рефа
+      avatar: avatarRef.current.value
     });
   }
+
+  useEffect(() => {
+    avatarRef.current.value='';
+  }, [isOpen]);
 
   return (
     <PopupWithForm
@@ -25,7 +28,7 @@ function EditAvatarPopup({ isOpen, onClose, onUpdateAvatar, onLoading }) {
     onClose={onClose}
     onSubmit={handleSubmit}>
     <label className="form__field form__fild-first">
-      <input name="avatar" className="form__input" id="avatar-input" type="url" placeholder="Ссылка на аватар" required ref={avatarRef} onChange={handleChangeAvatar} />
+      <input name="avatar" className="form__input" id="avatar-input" type="url" placeholder="Ссылка на аватар" required ref={avatarRef} onChange={handleChangeAvatar}/>
       <span className="form__input-error avatar-input-error"></span>
     </label>
   </PopupWithForm>

@@ -5,7 +5,6 @@ function AddPlacePopup({ isOpen, onClose, onAddPlace, onLoading }) {
   const [placeName, setPlaceName] = useState('');
   const [placeLink, setPlaceLink] = useState('');
 
-  // Обработчик изменения инпута обновляет стейт
   function handleChangeName(e) {
     setPlaceName(e.target.value);
   }
@@ -15,17 +14,14 @@ function AddPlacePopup({ isOpen, onClose, onAddPlace, onLoading }) {
   }
 
   function handleSubmit(e) {
-    // Запрещаем браузеру переходить по адресу формы
     e.preventDefault();
-
-    // Передаём значения управляемых компонентов во внешний обработчик
     onAddPlace({
       name: placeName,
       link: placeLink,
     });
   }
 
-  React.useEffect(() => {
+  useEffect(() => {
     setPlaceName('');
     setPlaceLink('');
   }, [isOpen]);

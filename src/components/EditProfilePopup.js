@@ -3,20 +3,15 @@ import PopupWithForm from './PopupWithForm';
 import CurrentUserContext from '../contexts/CurrentUserContext';
 
 function EditProfilePopup({ isOpen, onClose, onUpdateUser, onLoading }) {
-  // Подписка на контекст
   const currentUser = React.useContext(CurrentUserContext);
-  // Стейт, в котором содержится значение инпута
   const [name, setName] = useState('');
   const [description, setDescription] = useState('');
 
-  // После загрузки текущего пользователя из API
-  // его данные будут использованы в управляемых компонентах.
   useEffect(() => {
     setName(currentUser.name);
     setDescription(currentUser.about);
   }, [currentUser, isOpen]);
 
-  // Обработчик изменения инпута обновляет стейт
   function handleChangeName(e) {
     setName(e.target.value);
   }
@@ -26,10 +21,7 @@ function EditProfilePopup({ isOpen, onClose, onUpdateUser, onLoading }) {
   }
 
   function handleSubmit(e) {
-    // Запрещаем браузеру переходить по адресу формы
     e.preventDefault();
-
-    // Передаём значения управляемых компонентов во внешний обработчик
     onUpdateUser({
       name: name,
       about: description,
@@ -41,7 +33,6 @@ function EditProfilePopup({ isOpen, onClose, onUpdateUser, onLoading }) {
       name="profile"
       title="Редактировать профиль"
       buttonText={onLoading ? `Сохранение` : `Сохранить`}
-      //параметр из опен равен изначальному состоянию попапа
       isOpen={isOpen}
       onClose={onClose}
       onSubmit={handleSubmit}>
